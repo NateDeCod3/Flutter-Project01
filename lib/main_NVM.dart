@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'homepage_NVM.dart';
+import 'signup_NVM.dart';
 
 void main() {
   runApp(MaterialApp( 
@@ -44,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
     if (username.isNotEmpty && password.isNotEmpty) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Homepage()),  // Use the correct class name here
+        MaterialPageRoute(builder: (context) => Homepage()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -87,6 +88,16 @@ class _LoginFormState extends State<LoginForm> {
         ElevatedButton(
           onPressed: _handleLogin,
           child: Text("Login"),
+        ),
+        SizedBox(height: 20),
+        ElevatedButton (
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SignUpPage()),
+            );
+          },
+          child: Text('Sign Up Page'),
         ),
       ],
     );
